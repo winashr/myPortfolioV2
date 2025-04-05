@@ -27,3 +27,45 @@ class Particle {
     }
   }
   
+class ParticleAnimation {
+      constructor() {
+      this.canvas = document.getElementById('particleCanvas');
+      this.ctx = this.canvas.getContext('2d');
+      this.particles = [];
+  
+      this.resizeCanvas();
+      this.initParticles();
+      
+      window.addEventListener('resize', () => this.resizeCanvas());
+      this.animate();
+    }
+  
+    resizeCanvas() {
+      this.canvas.width = window.innerWidth;
+      this.canvas.height = window.innerHeight;
+    }
+  
+    initParticles() {
+      this.particles = [];
+      for (let i = 0; i < 50; i++) {
+        this.particles.push(new Particle(this.canvas));
+      }
+    }
+  
+    animate() {
+      this.ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+  
+      this.particles.forEach(particle => {
+        particle.update();
+        particle.draw(this.ctx);
+      });
+  
+      requestAnimationFrame(() => this.animate());
+    }
+  }
+  
+  // Initialize the animation when the page loads
+  document.addEventListener('DOMContentLoaded', () => {
+    new ParticleAnimation();
+  });
