@@ -34,4 +34,9 @@ Si tu souhaites cloner ce projet sur ta machine et le personnaliser, voici les Ã
    ```bash
    git clone https://github.com/winashr/myPortfolioV2.git
    ```
+2. Modifier les liens / src selon les votres:
+   ```html
+   <link rel="stylesheet" href="portfAshstyle.css">
+   ```
+
 
