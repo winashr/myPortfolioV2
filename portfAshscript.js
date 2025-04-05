@@ -53,7 +53,7 @@ class ParticleAnimation {
     }
   
     animate() {
-      this.ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      this.ctx.fillStyle = 'rgba(0, 0, 0, 0.06)';
       this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
   
       this.particles.forEach(particle => {
