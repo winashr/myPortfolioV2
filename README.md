@@ -36,7 +36,12 @@ Si tu souhaites cloner ce projet sur ta machine et le personnaliser, voici les �
    ```
 2. Modifier les liens / src selon les votres:
    ```html
-   <link rel="stylesheet" href="portfAshstyle.css">
+   CSS : <link rel="stylesheet" href="portfAshstyle.css">
+   JS : <script src="portfAshscript.js"></script>
    ```
-
+3. Héberger via github à l'aide de gh-pages
+   ```
+   git checkout -b gh-pages
+   git push --set-upstream origin gh-pages
+   ```
 
