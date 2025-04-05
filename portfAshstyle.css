@@ -92,3 +92,32 @@
     visibility: visible;
     bottom: -2rem;
   }
+
+  .myprojects {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 30%;
+    color: white;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .projects-link {
+    text-decoration: none;
+    color: white;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 0.1rem 4rem;
+  }
+
+  .projects-link p {
+    font-size: 0.8rem;
+    color: #ccc;
+    margin-left:2.4rem;
+  }
