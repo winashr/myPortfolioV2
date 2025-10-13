@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="mesProjets.css">
 </head>
 <body>
+    <canvas id="particleCanvas"></canvas>
+
     <div class="container">
         <button id="back-btn" class="back-button hidden">
             ← Retour aux projets
@@ -19,7 +21,6 @@
             </div>
             
             <div class="projects-grid">
-                <!-- Projet 1 : HSM Immo -->
                 <div class="project-card" data-project="hsm-immo">
                     <div class="project-header">
                         <div class="project-icon">🏠</div>
@@ -33,12 +34,11 @@
                         <span class="tech-badge">+4</span>
                     </div>
                     <div class="project-footer">
-                        <span class="project-date">2024</span>
+                        <span class="project-date">2025</span>
                         <span class="arrow-icon">→</span>
                     </div>
                 </div>
 
-                <!-- Projet 2 : immoSync -->
                 <div class="project-card" data-project="immosync">
                     <div class="project-header">
                         <div class="project-icon">🛠️</div>
@@ -55,11 +55,10 @@
                     </div>
                 </div>
 
-                <!-- Projet 3 : Gestion Travaux Symfony -->
                 <div class="project-card" data-project="travaux-symfony">
                     <div class="project-header">
                         <div class="project-icon">💻</div>
-                        <h3>GestionTrav Immobilier </h3>
+                        <h3>GestionTravaux Immobilier </h3>
                     </div>
                     <p class="project-description">Application web en Symfony pour la gestion de travaux immobiliers. Architecture MVC.</p>
                     <div class="tech-badges">
@@ -75,7 +74,6 @@
             </div>
         </div>
 
-        <!-- Détails projets -->
         <div id="project-detail" class="project-detail hidden">
             <div class="detail-card">
                 <div class="detail-header">
