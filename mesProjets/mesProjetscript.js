@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
             fullDescription: ['Application lourde pour la gestion complète de travaux immobiliers. Interface riche et dynamique avec JavaFX.'],
             frontendFeatures: ['Interface graphique moderne', 'Navigation fluide', 'Gestion des formulaires'],
             backendFeatures: ['Logique métier Java', 'Gestion de données locales', 'Projet en développement'],
-            links: [{text: 'Voir le code source', url: 'https://github.com/ort-montreuil/BTS-SIO-G2-2026-GESTTRAVAUX-Java'}]
+            links: [{text: 'Voir le code source (à venir)', url: 'https://github.com/ort-montreuil/BTS-SIO-G2-2026-GESTTRAVAUX-Java'}]
         },
         'travaux-symfony': {
             title: 'Gestion Travaux Web',
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
             fullDescription: ['Application web de gestion de travaux immobiliers, développée avec Symfony en architecture MVC.'],
             frontendFeatures: ['Templates Twig', 'Interface responsive', 'Navigation intuitive'],
             backendFeatures: ['Architecture MVC', 'Gestion des projets', 'Validation et sécurité des données'],
-            links: [{text: 'Voir le code source', url: 'https://github.com/ort-montreuil/BTS-SIO-G2-2026-GESTTRAVAUX-Web'}]
+            links: [{text: 'Voir le code source (à venir)', url: 'https://github.com/ort-montreuil/BTS-SIO-G2-2026-GESTTRAVAUX-Web'}]
         }
     };
 
