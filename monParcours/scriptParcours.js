@@ -1,20 +1,37 @@
 document.addEventListener('DOMContentLoaded', () => {
     const btnScolaire = document.getElementById('btn-scolaire');
     const btnPro = document.getElementById('btn-pro');
+    const btnBts = document.getElementById('btn-bts');
     const timeline = document.getElementById('timeline');
 
     const parcoursData = {
         scolaire: [
             { titre: "BTS SIO (1ère & 2ème années)", date: "2024 - 2026", desc: "Spécialisation en développement web et cybersécurité." },
-            { titre: "Licence Sciences de l'ingénieur-Sorbonne UPMC", date: "2023 - 2024", desc: "Etude de mathématiques, mécanique, électronique et de l'informatique." },
-            { titre: "Lycée Général Jean-Baptiste Corot", date: "2020 - 2023", desc: "Baccalauréat spéacialité mathématique & physique-chimie mention Assez Bien." }
+            { titre: "Licence Sciences de l'ingénieur - Sorbonne UPMC", date: "2023 - 2024", desc: "Étude de mathématiques, mécanique, électronique et informatique." },
+            { titre: "Lycée Général Jean-Baptiste Corot", date: "2020 - 2023", desc: "Baccalauréat spécialité mathématiques & physique-chimie, mention Assez Bien." }
         ],
         professionnel: [
-            { titre: "Stage-HSM Immo Développeur Web", date: "MAI 2025", desc: "Participation au développement d’une application en React/TypeScript." },
-            { titre: "Employé polyvalent-McDonald", date: "JUIN 2024", desc: "Polyvalence et Gestion d’équipe au sein de d'une équipe dans la restauration rapide." },
-            { titre: "Receptionniste-Kyriad Direct", date: "JUIN 2023", desc: "Polyvalence et Gestion d’équipe,communications bilingues, gestion des services informatiques pour les reservations." },
-            { titre: "Bénévole-Maison de quartier", date: "JUIN 2022", desc: "Aide aux devoirs des enfants en difficulté dans n'importe quelle matière, Aide aux loisirs des enfants."}
-
+            { titre: "Stage - HSM Immo (Développeur Web)", date: "Mai 2025", desc: "Participation au développement d’une application en React/TypeScript." },
+            { titre: "Employé Polyvalent - McDonald’s", date: "Juin 2024", desc: "Polyvalence et gestion d’équipe dans la restauration rapide." },
+            { titre: "Réceptionniste - Kyriad Direct", date: "Juin 2023", desc: "Accueil, communication bilingue, gestion des services informatiques pour les réservations." },
+            { titre: "Bénévole - Maison de quartier", date: "Juin 2022", desc: "Aide aux devoirs et activités ludiques pour les enfants." }
+        ],
+        bts: [
+            { 
+                titre: "Le BTS SIO (Services Informatiques aux Organisations)", 
+                date: "", 
+                desc: "Le BTS SIO forme des techniciens capables de concevoir, déployer et maintenir des solutions informatiques au sein des entreprises. Il se déroule sur deux ans et prépare à la fois au monde professionnel et à la poursuite d’études." 
+            },
+            { 
+                titre: "Option SISR (Solutions d’Infrastructure, Systèmes et Réseaux)", 
+                date: "", 
+                desc: "Cette spécialité est centrée sur l’administration des systèmes et réseaux. Elle prépare aux métiers liés à la cybersécurité, la maintenance, la virtualisation, et la gestion d’infrastructures réseau." 
+            },
+            { 
+                titre: "Option SLAM (Solutions Logicielles et Applications Métiers)", 
+                date: "", 
+                desc: "Cette spécialité forme des développeurs capables de créer des applications web, mobiles ou logicielles adaptées aux besoins des entreprises, en maîtrisant les langages de programmation, bases de données et frameworks modernes." 
+            }
         ]
     };
 
@@ -29,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
             div.style.animationDelay = `${i * 0.15}s`;
             div.innerHTML = `
                 <h3>${item.titre}</h3>
-                <span>${item.date}</span>
+                ${item.date ? `<span>${item.date}</span>` : ''}
                 <p>${item.desc}</p>
             `;
             timeline.appendChild(div);
@@ -40,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     btnScolaire.addEventListener('click', () => afficherTimeline('scolaire'));
     btnPro.addEventListener('click', () => afficherTimeline('professionnel'));
+    btnBts.addEventListener('click', () => afficherTimeline('bts'));
 
     /* ===== EFFET DE PARTICULES CYBER ===== */
     class Particle {

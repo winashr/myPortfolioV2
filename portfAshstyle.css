@@ -122,6 +122,21 @@
     position: relative;
   }
 
+  .mesCompétences {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 30%;
+    color: white;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
   .projects-link {
     text-decoration: none;
     color: white;
