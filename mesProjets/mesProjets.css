@@ -73,6 +73,28 @@ body {
     margin-bottom: 3rem;
 }
 
+.home-button {
+    display: block;
+    width: fit-content;
+    margin: 3rem auto 0;
+    background: rgba(30, 41, 59, 0.8);
+    color: #93c5fd;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(147, 197, 253, 0.2);
+    text-align: center;
+}
+
+.home-button:hover {
+    background: rgba(30, 41, 59, 1);
+    color: #bfdbfe;
+    border-color: rgba(147, 197, 253, 0.4);
+    transform: scale(1.05);
+}
+
 .header h1 {
     font-size: 2.5rem;
     font-weight: 700;
