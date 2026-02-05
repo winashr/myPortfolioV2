@@ -3,11 +3,11 @@ class Particle {
       this.canvas = canvas;
       this.x = Math.random() * canvas.width;
       this.y = Math.random() * canvas.height;
-      this.dx = (Math.random() - 0.5) * 0.5;
-      this.dy = (Math.random() - 0.5) * 0.5;
-      this.radius = Math.random() * 2 + 1;
+      this.dx = (Math.random() - 0.5) * 0.3;
+      this.dy = (Math.random() - 0.5) * 0.3;
+      this.radius = Math.random() * 1.5 + 0.5;
       
-      const colors = ['#ff4444', '#4444ff', '#ffffff'];
+      const colors = ['#00d4ff', '#0099ff', '#64748b'];
       this.color = colors[Math.floor(Math.random() * colors.length)];
     }
   
@@ -47,13 +47,13 @@ class ParticleAnimation {
   
     initParticles() {
       this.particles = [];
-      for (let i = 0; i < 50; i++) {
+      for (let i = 0; i < 40; i++) {
         this.particles.push(new Particle(this.canvas));
       }
     }
   
     animate() {
-      this.ctx.fillStyle = 'rgba(0, 0, 0, 0.06)';
+      this.ctx.fillStyle = 'rgba(10, 14, 39, 0.02)';
       this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
   
       this.particles.forEach(particle => {

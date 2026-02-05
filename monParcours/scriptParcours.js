@@ -11,9 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
             { titre: "Lycée Général Jean-Baptiste Corot", date: "2020 - 2023", desc: "Baccalauréat spécialité mathématiques & physique-chimie, mention Assez Bien." }
         ],
         professionnel: [
-            { titre: "Stage - HSM Immo (Développeur Web)", date: "Mai 2025", desc: "Participation au développement d’une application en React/TypeScript." },
-            { titre: "Employé Polyvalent - McDonald’s", date: "Juin 2024", desc: "Polyvalence et gestion d’équipe dans la restauration rapide." },
-            { titre: "Réceptionniste - Kyriad Direct", date: "Juin 2023", desc: "Accueil, communication bilingue, gestion des services informatiques pour les réservations." },
+            { titre: "Stage - HSM Immo (Performance & SEO)", date: "Janvier 2026 - février 2026", desc: "Analyse via PageSpeed Insights et optimisation des performances/SEO (images, balises, temps de chargement)." },
+            { titre: "Stage - HSM Immo (Développeur Web)", date: "Mai 2025 - juillet 2025", desc: "Participation au développement d’une application en React/TypeScript." },
+            { titre: "Employé Polyvalent - McDonald’s", date: "Juin 2024 - aout 2024", desc: "Polyvalence et gestion d’équipe dans la restauration rapide." },
+            { titre: "Réceptionniste - Kyriad Direct", date: "Juin 2023 - aout 2023", desc: "Accueil, communication bilingue, gestion des services informatiques pour les réservations." },
             { titre: "Bénévole - Maison de quartier", date: "Juin 2022", desc: "Aide aux devoirs et activités ludiques pour les enfants." }
         ],
         bts: [

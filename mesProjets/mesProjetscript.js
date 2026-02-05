@@ -66,6 +66,79 @@ document.addEventListener('DOMContentLoaded', function() {
                 {text: 'Visiter le site', url: 'https://hsmimmo.com'}
             ]
         },
+        'hsm-immo-perf': {
+            title: 'HSM Immo - Optimisation SEO & Performance',
+            tech: ['PageSpeed Insights', 'Web Performance', 'SEO Audit', 'Image Optimization', 'Core Web Vitals', 'Lighthouse', 'Analytics'],
+            fullDescription: [
+                'Optimisation complète du site HSM Immo focalisée sur les performances et le SEO. Analyse détaillée via Google PageSpeed Insights et Lighthouse, suivi d\'une série de corrections avancées pour améliorer significativement la visibilité organique et l\'expérience utilisateur.',
+                'Le projet comprenait l\'identification et la correction des problèmes critiques liés aux images mal compressées, au temps de chargement excessif, et aux facteurs SEO impactant le classement dans les moteurs de recherche.'
+            ],
+            features: [
+                {
+                    icon: '🔍',
+                    title: 'Audit SEO Complet',
+                    description: 'Analyse approfondie des aspects SEO (métadonnées, structure, backlinks, indexation) avec recommandations détaillées'
+                },
+                {
+                    icon: '📊',
+                    title: 'Analyse PageSpeed Insights',
+                    description: 'Utilisation systématique de Google PageSpeed Insights pour identifier les goulots d\'étranglement et mesurer les améliorations'
+                },
+                {
+                    icon: '🖼️',
+                    title: 'Optimisation des Images',
+                    description: 'Compression et conversion des images en formats modernes (WebP), réduction des tailles sans perte de qualité'
+                },
+                {
+                    icon: '⏱️',
+                    title: 'Core Web Vitals Optimized',
+                    description: 'Amélioration des métriques essentielles : LCP, FID, CLS pour un score Lighthouse maximal'
+                },
+                {
+                    icon: '🚀',
+                    title: 'Lazy Loading & Code Splitting',
+                    description: 'Mise en place du lazy loading pour les images et du code splitting pour réduire le JavaScript initial'
+                },
+                {
+                    icon: '📈',
+                    title: 'Suivi & Monitoring',
+                    description: 'Configuration du monitoring continu avec Google Analytics 4 et Search Console pour le suivi des performances'
+                }
+            ],
+            techStack: {
+                'Outils d\'Analyse': ['Google PageSpeed Insights', 'Lighthouse', 'Google Search Console', 'Google Analytics 4', 'Screaming Frog SEO Spider'],
+                'Optimisation Images': ['TinyPNG/TinyJPG', 'ImageMagick', 'WebP Conversion', 'Responsive Images', 'Picture Element'],
+                'Web Performance': ['Minification CSS/JS', 'Code Splitting React', 'Lazy Loading', 'Browser Caching', 'CDN Optimization'],
+                'SEO Techniques': ['Structured Data (Schema.org)', 'Meta Tags Optimization', 'URL Structure', 'Internal Linking', 'XML Sitemap']
+            },
+            challenges: [
+                {
+                    title: 'Compression des Images Sans Perte de Qualité',
+                    description: 'Réduction significative de la taille des images (souvent 70-80%) tout en maintenant une qualité visuelle impeccable. Conversion en WebP pour les navigateurs modernes avec fallback JPG/PNG.'
+                },
+                {
+                    title: 'Amélioration des Core Web Vitals',
+                    description: 'Optimisation des trois métriques clés (LCP, FID, CLS) avec un focus particulier sur le LCP (Largest Contentful Paint) en optimisant le chargement des ressources critiques.'
+                },
+                {
+                    title: 'SEO Technique Avancé',
+                    description: 'Mise en place du balisage Schema.org pour l\'immobilier, optimisation des métadonnées, amélioration de la structure interne et audit des problèmes d\'indexation.'
+                },
+                {
+                    title: 'Compatibilité et Tests Croisés',
+                    description: 'Tests rigoureux sur différents appareils, connexions réseau et navigateurs pour assurer une expérience utilisateur cohérente et une performance maintenue.'
+                }
+            ],
+            results: [
+                { metric: 'Performance Score', value: '95+', icon: '⚡' },
+                { metric: 'SEO Score', value: '100', icon: '🎯' },
+                { metric: 'Accessibilité', value: '95+', icon: '♿' }
+            ],
+            links: [
+                {text: 'Voir le rapport Lighthouse', url: 'https://hsmimmo.com'},
+                {text: 'Visiter le site', url: 'https://hsmimmo.com'}
+            ]
+        },
         'immosync': {
             title: 'immoSync - Application Client Lourd',
             tech: ['Java 17', 'JavaFX', 'FXML', 'Scene Builder', 'Maven', 'MVC'],
