@@ -38,6 +38,27 @@ body {
     margin-bottom: 3rem;
 }
 
+/* 3D name styling */
+.hero-section {
+    perspective: 1200px;
+}
+
+#name3d {
+    display: inline-block;
+    transform-style: preserve-3d;
+    transition: transform 0.12s ease-out, text-shadow 0.12s ease-out;
+    will-change: transform, text-shadow;
+    /* subtle extrusion using layered text-shadows */
+    text-shadow:
+        0 1px 0 rgba(0,0,0,0.12),
+        0 2px 0 rgba(0,0,0,0.10),
+        0 6px 18px rgba(0,0,0,0.35);
+}
+
+#name3d:active {
+    transition-duration: 0.06s;
+}
+
 h1 {
     font-size: clamp(2rem, 8vw, 3.5rem);
     font-weight: 700;
