@@ -30,8 +30,9 @@ class Particle {
 class ParticleAnimation {
       constructor() {
       this.canvas = document.getElementById('particleCanvas');
-      this.ctx = this.canvas.getContext('2d');
+      this.ctx = this.canvas.getContext('2d', { alpha: true });
       this.particles = [];
+      this.dpr = window.devicePixelRatio || 1;
   
       this.resizeCanvas();
       this.initParticles();
@@ -41,8 +42,11 @@ class ParticleAnimation {
     }
   
     resizeCanvas() {
-      this.canvas.width = window.innerWidth;
-      this.canvas.height = window.innerHeight;
+      this.canvas.width = window.innerWidth * this.dpr;
+      this.canvas.height = window.innerHeight * this.dpr;
+      this.canvas.style.width = window.innerWidth + 'px';
+      this.canvas.style.height = window.innerHeight + 'px';
+      this.ctx.scale(this.dpr, this.dpr);
     }
   
     initParticles() {
@@ -53,8 +57,11 @@ class ParticleAnimation {
     }
   
     animate() {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      
       this.ctx.fillStyle = 'rgba(10, 14, 39, 0.02)';
-      this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+      this.ctx.fillRect(0, 0, width, height);
   
       this.particles.forEach(particle => {
         particle.update();

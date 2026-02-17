@@ -4,12 +4,20 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background: linear-gradient(135deg, #0a0e27 0%, #16213e 100%);
+    background-attachment: fixed;
     color: #e8e8e8;
     min-height: 100vh;
     overflow-x: hidden;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 #particleCanvas {
@@ -20,6 +28,8 @@ body {
     height: 100%;
     z-index: 0;
     opacity: 0.5;
+    pointer-events: none;
+    will-change: auto;
 }
 
 .content {
@@ -31,6 +41,8 @@ body {
     align-items: center;
     justify-content: center;
     padding: 2rem 1rem;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .hero-section {
@@ -146,6 +158,7 @@ h2 {
     width: 100%;
     max-width: 1000px;
     padding: 0 1rem;
+    margin: 0 auto;
 }
 
 .section-card {
@@ -163,6 +176,7 @@ h2 {
     min-height: 240px;
     position: relative;
     overflow: hidden;
+    will-change: transform, box-shadow;
 }
 
 .section-card::before {
@@ -235,4 +249,123 @@ h2 {
 .section-card:hover .card-arrow svg {
     opacity: 1;
     transform: translateX(4px);
+}
+
+/* ======== RESPONSIVE DESIGN ======== */
+@media (max-width: 768px) {
+    .content {
+        padding: 1.5rem 1rem;
+    }
+
+    .hero-section {
+        margin-bottom: 2rem;
+    }
+
+    h1 {
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
+    }
+
+    h2 {
+        font-size: clamp(0.95rem, 2.5vw, 1.25rem);
+    }
+
+    .subtitle {
+        font-size: clamp(0.85rem, 1.8vw, 1rem);
+    }
+
+    .social-icons {
+        gap: 0.75rem;
+        margin: 1.5rem 0 2rem 0;
+    }
+
+    .social-icon {
+        padding: 0.6rem;
+    }
+
+    .social-icon::after {
+        bottom: -2.2rem;
+        font-size: 0.7rem;
+        padding: 0.3rem 0.6rem;
+    }
+
+    .sections-container {
+        gap: 1rem;
+        padding: 0 0.5rem;
+    }
+
+    .section-card {
+        padding: 1.5rem;
+        min-height: 220px;
+    }
+
+    .section-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .section-card p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        padding: 1rem 0.75rem;
+    }
+
+    h1 {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+        letter-spacing: -0.5px;
+    }
+
+    h2 {
+        font-size: clamp(0.9rem, 2vw, 1rem);
+    }
+
+    .subtitle {
+        font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+    }
+
+    .hero-section {
+        margin-bottom: 1.5rem;
+    }
+
+    .social-icons {
+        gap: 0.6rem;
+        margin: 1rem 0 1.5rem 0;
+    }
+
+    .social-icon {
+        padding: 0.5rem;
+        width: 40px;
+        height: 40px;
+    }
+
+    .social-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .social-icon::after {
+        display: none;
+    }
+
+    .sections-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0 0.5rem;
+        max-width: 100%;
+    }
+
+    .section-card {
+        padding: 1.25rem;
+        min-height: 200px;
+    }
+
+    .section-card h3 {
+        font-size: 1rem;
+    }
+
+    .section-card p {
+        font-size: 0.85rem;
+    }
 }
