@@ -312,3 +312,151 @@ body {
         font-size: 0.85rem;
     }
 }
+
+/* ===== MODAL SWOT ===== */
+.info-btn {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 8px;
+    background-color: rgba(0, 212, 255, 0.2);
+    color: #00d4ff;
+    border: 1px solid rgba(0, 212, 255, 0.4);
+    border-radius: 50%;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    vertical-align: middle;
+}
+
+.info-btn:hover {
+    background-color: rgba(0, 212, 255, 0.4);
+    transform: scale(1.1);
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 14, 39, 0.8);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay:not(.hidden) {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background: #101832;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    max-width: 90%;
+    width: 700px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay:not(.hidden) .modal-content {
+    transform: scale(1);
+}
+
+.close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    color: #a0aec0;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+    color: #e2e8f0;
+}
+
+#modal-body h2 {
+    background: linear-gradient(135deg, #00d4ff, #0099ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+#modal-body h3 {
+    color: #00d4ff;
+    font-size: 1.3rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+    padding-bottom: 0.5rem;
+}
+
+#modal-body .swot-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+#modal-body .swot-category {
+    background: rgba(0, 212, 255, 0.05);
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 3px solid;
+}
+
+#modal-body .swot-category h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+#modal-body .swot-category ul {
+    list-style-position: inside;
+    padding-left: 0.5rem;
+    color: #cbd5e1;
+}
+
+#modal-body .swot-category li {
+    margin-bottom: 0.3rem;
+}
+
+#modal-body .swot-forces { border-color: #34d399; }
+#modal-body .swot-forces h4 { color: #34d399; }
+
+#modal-body .swot-faiblesses { border-color: #f87171; }
+#modal-body .swot-faiblesses h4 { color: #f87171; }
+
+#modal-body .swot-opportunites { border-color: #60a5fa; }
+#modal-body .swot-opportunites h4 { color: #60a5fa; }
+
+#modal-body .swot-menaces { border-color: #fbbf24; }
+#modal-body .swot-menaces h4 { color: #fbbf24; }
+
+#modal-body .other-info p {
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+#modal-body .other-info strong {
+    color: #a0aec0;
+}
+
