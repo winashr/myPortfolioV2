@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <h4>Menaces</h4>
                         <ul>
                             <li>Concurrence des grands réseaux</li>
-                            <li>Réglementation complexe (DPE, etc.)</li>
+                            <li>Réglementation complexe (PTZ, etc.)</li>
                             <li>Conjoncture économique (taux d'intérêt)</li>
                         </ul>
                     </div>
