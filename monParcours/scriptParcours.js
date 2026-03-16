@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { titre: "Lycée Général Jean-Baptiste Corot", date: "2020 - 2023", desc: "Baccalauréat spécialité mathématiques & physique-chimie, mention Assez Bien." }
         ],
         professionnel: [
-            { titre: "Stage - HSM Immo (Performance & SEO)", date: "Janvier 2026 - février 2026", desc: "Analyse via PageSpeed Insights et optimisation des performances/SEO (images, balises, temps de chargement)." },
+            { titre: "Stage - HSM Immo 2ème année (Performance & SEO)", date: "Janvier 2026 - février 2026", desc: "Analyse via PageSpeed Insights et optimisation des performances/SEO (images, balises, temps de chargement)." },
             { titre: "Stage - HSM Immo (Développeur Web)", date: "Mai 2025 - juillet 2025", desc: "Participation au développement d’une application en React/TypeScript." },
             { titre: "Employé Polyvalent - McDonald’s", date: "Juin 2024 - aout 2024", desc: "Polyvalence et gestion d’équipe dans la restauration rapide." },
             { titre: "Réceptionniste - Kyriad Direct", date: "Juin 2023 - aout 2023", desc: "Accueil, communication bilingue, gestion des services informatiques pour les réservations." },
@@ -45,8 +45,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const div = document.createElement('div');
             div.classList.add('timeline-item');
             div.style.animationDelay = `${i * 0.15}s`;
+
+            let titreHtml = item.titre;
+            if (item.titre.includes("HSM Immo")) {
+                titreHtml += ` <button class="info-btn" data-swot="hsm-immo">i</button>`;
+            }
+
             div.innerHTML = `
-                <h3>${item.titre}</h3>
+                <h3>${titreHtml}</h3>
                 ${item.date ? `<span>${item.date}</span>` : ''}
                 <p>${item.desc}</p>
             `;
@@ -107,7 +113,93 @@ document.addEventListener('DOMContentLoaded', () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
     });
+
+    /* ===== MODAL LOGIC ===== */
+    const modal = document.getElementById('swot-modal');
+    const modalBody = document.getElementById('modal-body');
+    const closeBtn = modal.querySelector('.close-btn');
+
+    const swotData = {
+        'hsm-immo': {
+            title: 'Analyse SWOT - HSM Immo',
+            content: `
+                <h3>Analyse SWOT</h3>
+                <div class="swot-section">
+                    <div class="swot-category swot-forces">
+                        <h4>Forces</h4>
+                        <ul>
+                            <li>Réactivité via les réseaux</li>
+                            <li>Relation client personnalisée</li>
+                            <li>Expertise sur les biens locaux</li>
+                        </ul>
+                    </div>
+                    <div class="swot-category swot-faiblesses">
+                        <h4>Faiblesses</h4>
+                        <ul>
+                            <li>Notoriété limitée</li>
+                            <li>Polyvalence extrême du gérant</li>
+                            <li>Dépendance (effectif réduit)</li>
+                        </ul>
+                    </div>
+                    <div class="swot-category swot-opportunites">
+                        <h4>Opportunités</h4>
+                        <ul>
+                            <li>Digitalisation (réseaux sociaux)</li>
+                            <li>Spécialisation sur le marché</li>
+                            <li>Partenariats avec des acteurs locaux</li>
+                        </ul>
+                    </div>
+                    <div class="swot-category swot-menaces">
+                        <h4>Menaces</h4>
+                        <ul>
+                            <li>Concurrence des grands réseaux</li>
+                            <li>Réglementation complexe (DPE, etc.)</li>
+                            <li>Conjoncture économique (taux d'intérêt)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="other-info">
+                    <h3>Informations Complémentaires</h3>
+                    <p><strong>Statut Juridique :</strong> Société à responsabilité limitée (SARL) spécialisée dans les transactions immobilières.</p>
+                    <p><strong>Responsabilité RSE :</strong> En tant que petite structure, l'engagement RSE se concentre sur une approche éthique du métier, la transparence envers les clients et une faible empreinte carbone via la digitalisation des documents.</p>
+                </div>
+            `
+        }
+    };
+
+    function fillSwotModal(type) {
+        const data = swotData[type];
+        if (!data) return;
+
+        modalBody.innerHTML = `<h2>${data.title}</h2>` + data.content;
+    }
+
+    function openModal() {
+        modal.classList.remove('hidden');
+    }
+
+    function closeModal() {
+        modal.classList.add('hidden');
+    }
+
+    timeline.addEventListener('click', (e) => {
+        if (e.target.classList.contains('info-btn')) {
+            const swotType = e.target.dataset.swot;
+            if (swotType) {
+                fillSwotModal(swotType);
+                openModal();
+            }
+        }
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
 });
+
 
 // 3D name rotation based on mouse position (Mon Parcours)
 (function() {
