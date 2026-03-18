@@ -4,8 +4,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const projectsListView = document.getElementById('projects-list-view');
     const projectDetail = document.getElementById('project-detail');
     const categoryCards = document.querySelectorAll('.category-card');
-    
+    const deliverablesModal = document.getElementById('deliverables-modal');
+    const deliverablesGallery = document.getElementById('deliverables-gallery');
+    const imageLightbox = document.getElementById('image-lightbox');
+
     let currentCategory = null;
+    let currentProjectId = null;
 
     // ========== DATA DECLARATION ==========
     const projectsData = {
@@ -64,6 +68,29 @@ document.addEventListener('DOMContentLoaded', function() {
                 { metric: 'Responsive', value: '100%', icon: '📱' },
                 { metric: 'Type-Safety', value: 'TypeScript', icon: '🛡️' }
             ],
+            deliverables: {
+                enabled: true,  // ✅ Activé!
+                images: [
+                    {
+                        src: '/images/livrables/hsm-immo/screenshot-homepage.jpg',
+                        title: 'Page d\'accueil',
+                        description: 'Interface principale responsive avec navigation moderne',
+                        category: 'Interface'
+                    },
+                    {
+                        src: '/images/livrables/hsm-immo/screenshot-contact.jpg',
+                        title: 'Formulaire de contact',
+                        description: 'Intégration API Mailjet pour l\'envoi d\'emails',
+                        category: 'Fonctionnalité'
+                    },
+                    {
+                        src: '/images/livrables/hsm-immo/lighthouse-report.png',
+                        title: 'Rapport Lighthouse',
+                        description: 'Score de performance et accessibilité',
+                        category: 'Performance'
+                    }
+                ]
+            },
             links: [
                 {text: 'Visiter le site', url: 'https://hsmimmo.com'}
             ]
@@ -136,6 +163,29 @@ document.addEventListener('DOMContentLoaded', function() {
                 { metric: 'SEO Score', value: '100', icon: '🎯' },
                 { metric: 'Accessibilité', value: '95+', icon: '♿' }
             ],
+            deliverables: {
+                enabled: true,
+                images: [
+                    {
+                        src: '/images/livrables/hsm-immo-perf/SEO50.png',
+                        title: 'Score SEO Avant Optimisation',
+                        description: 'Audit initial révélant un score SEO de 50 avec des recommandations claires pour l\'amélioration',
+                        category: 'Interface'
+                    },
+                    {
+                        src: '/images/livrables/hsm-immo-perf/SEO100.png',
+                        title: 'Score SEO Après Optimisation',
+                        description: 'Implementation des recommandations SEO pour atteindre un score parfait de 100',
+                        category: 'Interface'
+                    },
+                    {
+                        src: '/images/livrables/hsm-immo-perf/DB.png',
+                        title: 'Intégration de BDD avec requêtes préparées',
+                        description: 'Sécurisation des interactions avec la base de données pour éviter les injections SQL',
+                        category: 'Backend'
+                    }
+                ]
+            },
             links: [
                 {text: 'Voir le rapport Lighthouse(Soon...)', url: 'https://hsmimmo.com'},
                 {text: 'Visiter le site', url: 'https://hsmimmo.com'}
@@ -183,8 +233,8 @@ document.addEventListener('DOMContentLoaded', function() {
             techStack: {
                 'Interface & Design': ['JavaFX 17', 'FXML', 'Scene Builder', 'CSS JavaFX', 'Responsive Layout'],
                 'Backend & Architecture': ['Java 17', 'Architecture MVC', 'Design Patterns', 'Maven', 'Gestion événements'],
-                'Base de Données': ['JDBC', 'MySQL', 'DAO Pattern', 'Transactions', 'Pool de connexions'],
-                'Outils de Développement': ['IntelliJ IDEA', 'Git', 'Maven', 'JUnit', 'JavaDoc']
+                'Base de Données': ['JDBC', 'MySQL', 'DAO Pattern', 'Optimisation des requêtes'],
+                'Outils de Développement': ['IntelliJ IDEA', 'Git', 'Maven', 'JavaDoc']
             },
             challenges: [
                 {
@@ -203,8 +253,12 @@ document.addEventListener('DOMContentLoaded', function() {
             results: [
                 { metric: 'Interface riche', value: 'JavaFX moderne', icon: '🎨' },
                 { metric: 'Architecture', value: 'MVC solide', icon: '🏛️' },
-                { metric: 'Fonctionnement', value: '100% Offline', icon: '📴' }
+                { metric: 'Base de données', value: 'MySQL', icon: '💾' }
             ],
+            deliverables: {
+                enabled: false,
+                images: []
+            },
             links: [
                 {text: 'Voir le code source', url: 'https://github.com/ort-montreuil/BTS-SIO-G2-2026-GESTTRAVAUX-Java'}
             ]
@@ -263,6 +317,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 { metric: 'Architecture', value: 'MVC Pro', icon: '🏛️' },
                 { metric: 'Base de données', value: 'Doctrine ORM', icon: '💾' }
             ],
+            deliverables: {
+                enabled: false,
+                images: []
+            },
             links: [
                 {text: 'Voir le code source', url: 'https://github.com/ort-montreuil/BTS-SIO-G2-2026-GESTTRAVAUX-Web'}
             ]
@@ -522,6 +580,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const linksDiv = document.querySelector('.project-links');
         linksDiv.innerHTML = '';
+
+        // NOUVEAU: Bouton "Voir les livrables" (toujours affiché)
+        const delivBtn = document.createElement('button');
+        delivBtn.className = 'btn-deliverables';
+        delivBtn.textContent = '📸 Voir les livrables';
+        delivBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            showDeliverablesModal(projectId);
+        });
+        linksDiv.appendChild(delivBtn);
+
+        // Boutons existants (Visiter/Code)
         project.links.forEach(link => {
             const a = document.createElement('a');
             a.href = link.url;
@@ -531,6 +601,8 @@ document.addEventListener('DOMContentLoaded', function() {
             linksDiv.appendChild(a);
         });
 
+        currentProjectId = projectId;
+
         // Affichage du détail
         projectDetail.classList.remove('hidden');
         categoriesView.classList.add('hidden');
@@ -538,13 +610,107 @@ document.addEventListener('DOMContentLoaded', function() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Fonction obsolète - remplacée par showCategoriesView()
-    // function showProjectsOverview() {
-    //     projectDetail.classList.remove('active');
-    //     projectDetail.classList.add('hidden');
-    //     projectsOverview.classList.remove('hidden');
-    //     backBtn.classList.add('hidden');
-    // }
+    // ========== DELIVERABLES MODAL FUNCTIONS ==========
+    function showDeliverablesModal(projectId) {
+        const project = projectsData[projectId];
+        if (!project) return;
+
+        // Mettre à jour titre
+        document.getElementById('deliverables-title').textContent = `Livrables - ${project.title}`;
+
+        const gallery = document.getElementById('deliverables-gallery');
+        gallery.innerHTML = '';
+
+        // Si pas de livrables ou disabled, afficher message
+        if (!project.deliverables || !project.deliverables.enabled || !project.deliverables.images || project.deliverables.images.length === 0) {
+            gallery.innerHTML = `
+                <div style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">📸</div>
+                    <h3 style="color: #00d4ff; font-size: 1.5rem; margin-bottom: 1rem;">Livrables à venir</h3>
+                    <p style="color: #a0aec0; font-size: 1rem;">Les preuves de travail pour ce projet seront ajoutées prochainement.</p>
+                </div>
+            `;
+            deliverablesModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            return;
+        }
+
+        // Générer la galerie
+        project.deliverables.images.forEach((deliverable, index) => {
+            const item = document.createElement('div');
+            item.className = 'deliverable-item';
+            item.dataset.index = index;
+
+            item.innerHTML = `
+                <div class="deliverable-image-container">
+                    <img class="deliverable-image" src="${deliverable.src}" alt="${deliverable.title}" loading="lazy">
+                    <div class="deliverable-overlay">
+                        <span class="deliverable-overlay-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="deliverable-info">
+                    <span class="deliverable-category">${deliverable.category}</span>
+                    <h3>${deliverable.title}</h3>
+                    <p>${deliverable.description}</p>
+                </div>
+            `;
+
+            // Event listener pour lightbox
+            item.addEventListener('click', function() {
+                openImageLightbox(deliverable);
+            });
+
+            gallery.appendChild(item);
+        });
+
+        // Afficher modal
+        deliverablesModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+
+        // Scroll to top
+        const modalContent = document.querySelector('.deliverables-content');
+        if (modalContent) modalContent.scrollTop = 0;
+    }
+
+    function closeDeliverablesModal() {
+        deliverablesModal.classList.add('hidden');
+        document.body.style.overflow = '';
+    }
+
+    function openImageLightbox(deliverable) {
+        document.getElementById('lightbox-image').src = deliverable.src;
+        document.getElementById('lightbox-title').textContent = deliverable.title;
+        document.getElementById('lightbox-description').textContent = deliverable.description;
+        imageLightbox.classList.remove('hidden');
+    }
+
+    function closeLightbox() {
+        imageLightbox.classList.add('hidden');
+    }
+
+    // Event listeners pour les modals
+    document.getElementById('close-deliverables').addEventListener('click', closeDeliverablesModal);
+    document.getElementById('close-lightbox').addEventListener('click', closeLightbox);
+
+    // Fermer en cliquant sur fond
+    deliverablesModal.addEventListener('click', function(e) {
+        if (e.target === deliverablesModal) closeDeliverablesModal();
+    });
+
+    imageLightbox.addEventListener('click', function(e) {
+        if (e.target === imageLightbox) closeLightbox();
+    });
+
+    // Support clavier ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            if (!imageLightbox.classList.contains('hidden')) {
+                closeLightbox();
+            } else if (!deliverablesModal.classList.contains('hidden')) {
+                closeDeliverablesModal();
+            }
+        }
+    });
 
     /* ======== ANIMATION DES PARTICULES ======== */
     class Particle {
