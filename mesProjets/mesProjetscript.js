@@ -4,8 +4,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const projectsListView = document.getElementById('projects-list-view');
     const projectDetail = document.getElementById('project-detail');
     const categoryCards = document.querySelectorAll('.category-card');
-    
+    const deliverablesModal = document.getElementById('deliverables-modal');
+    const deliverablesGallery = document.getElementById('deliverables-gallery');
+    const imageLightbox = document.getElementById('image-lightbox');
+
     let currentCategory = null;
+    let currentProjectId = null;
 
     // ========== DATA DECLARATION ==========
     const projectsData = {
@@ -64,6 +68,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 { metric: 'Responsive', value: '100%', icon: '📱' },
                 { metric: 'Type-Safety', value: 'TypeScript', icon: '🛡️' }
             ],
+            deliverables: {
+                enabled: true,  // ✅ Activé!
+                images: [
+                    {
+                        src: '/images/livrables/hsm-immo/ScrumJira.png',
+                        title: 'Méthode Agile Scrum',
+                        description: 'Interface des tâchjes et sprints sur Jira pour une gestion de projet efficace',
+                        category: 'Gestion de Projet'
+                    },
+                    {
+                        src: '/images/livrables/hsm-immo/DemandeClient.jpeg',
+                        title: 'Demande Client',
+                        description: 'Document de demande initiale du client avec les exigences fonctionnelles et techniques',
+                        category: 'Fonctionnalité'
+                    }
+                ]
+            },
             links: [
                 {text: 'Visiter le site', url: 'https://hsmimmo.com'}
             ]
@@ -136,6 +157,29 @@ document.addEventListener('DOMContentLoaded', function() {
                 { metric: 'SEO Score', value: '100', icon: '🎯' },
                 { metric: 'Accessibilité', value: '95+', icon: '♿' }
             ],
+            deliverables: {
+                enabled: true,
+                images: [
+                    {
+                        src: '/images/livrables/hsm-immo-perf/SEO50.png',
+                        title: 'Score SEO Avant Optimisation',
+                        description: 'Audit initial révélant un score SEO de 50 avec des recommandations claires pour l\'amélioration',
+                        category: 'Interface'
+                    },
+                    {
+                        src: '/images/livrables/hsm-immo-perf/SEO100.png',
+                        title: 'Score SEO Après Optimisation',
+                        description: 'Implementation des recommandations SEO pour atteindre un score parfait de 100',
+                        category: 'Interface'
+                    },
+                    {
+                        src: '/images/livrables/hsm-immo-perf/DB.png',
+                        title: 'Intégration de BDD avec requêtes préparées',
+                        description: 'Sécurisation des interactions avec la base de données pour éviter les injections SQL',
+                        category: 'Backend'
+                    }
+                ]
+            },
             links: [
                 {text: 'Voir le rapport Lighthouse(Soon...)', url: 'https://hsmimmo.com'},
                 {text: 'Visiter le site', url: 'https://hsmimmo.com'}
@@ -183,8 +227,8 @@ document.addEventListener('DOMContentLoaded', function() {
             techStack: {
                 'Interface & Design': ['JavaFX 17', 'FXML', 'Scene Builder', 'CSS JavaFX', 'Responsive Layout'],
                 'Backend & Architecture': ['Java 17', 'Architecture MVC', 'Design Patterns', 'Maven', 'Gestion événements'],
-                'Base de Données': ['JDBC', 'MySQL', 'DAO Pattern', 'Transactions', 'Pool de connexions'],
-                'Outils de Développement': ['IntelliJ IDEA', 'Git', 'Maven', 'JUnit', 'JavaDoc']
+                'Base de Données': ['JDBC', 'MySQL', 'DAO Pattern', 'Optimisation des requêtes'],
+                'Outils de Développement': ['IntelliJ IDEA', 'Git', 'Maven', 'JavaDoc']
             },
             challenges: [
                 {
@@ -203,8 +247,31 @@ document.addEventListener('DOMContentLoaded', function() {
             results: [
                 { metric: 'Interface riche', value: 'JavaFX moderne', icon: '🎨' },
                 { metric: 'Architecture', value: 'MVC solide', icon: '🏛️' },
-                { metric: 'Fonctionnement', value: '100% Offline', icon: '📴' }
+                { metric: 'Base de données', value: 'MySQL', icon: '💾' }
             ],
+            deliverables: {
+                enabled: true,
+                images: [
+                    {
+                        src: '/images/livrables/immosync/workflow.png',
+                        title: 'Fonctionnalités de l\'application',
+                        description: 'Illustration des différentes fonctionnalités de l\'application et de leur interaction',
+                        category: 'Fonctionnalité'
+                    },
+                    {
+                        src: '/images/livrables/immosync/gestadmin.png',
+                        title: 'Interface Administrateur',
+                        description: 'Interface pour la gestion des utilisateurs / entités avec JavaFX et FXML',
+                        category: 'Interface'
+                    },
+                    {
+                        src: '/images/livrables/immosync/gestchantier.png',
+                        title: 'Interface gestionnaire',
+                        description: 'Interface pour la gestion des chantiers avec JavaFX et FXML',
+                        category: 'Interface'
+                    }
+                ]
+            },
             links: [
                 {text: 'Voir le code source', url: 'https://github.com/ort-montreuil/BTS-SIO-G2-2026-GESTTRAVAUX-Java'}
             ]
@@ -263,8 +330,89 @@ document.addEventListener('DOMContentLoaded', function() {
                 { metric: 'Architecture', value: 'MVC Pro', icon: '🏛️' },
                 { metric: 'Base de données', value: 'Doctrine ORM', icon: '💾' }
             ],
+            deliverables: {
+                enabled: false,
+                images: []
+            },
             links: [
                 {text: 'Voir le code source', url: 'https://github.com/ort-montreuil/BTS-SIO-G2-2026-GESTTRAVAUX-Web'}
+            ]
+        },
+        'endgame-eduframe': {
+            title: 'EndGame - Déploiement EDUFramework',
+            tech: ['EDUFramework', 'Docker', 'Nginx', 'PHP 8.3', 'MySQL', 'phpMyAdmin', 'Deployer', 'DevOps'],
+            fullDescription: [
+                'Projet de déploiement complet d\'une application web avec EDUFramework, du développement à la mise en production. Collaboration entre développeurs (SLAM) et administrateurs système (SISR) pour comprendre l\'intégralité du cycle de vie d\'une application.',
+                'Le projet intègre la création d\'un formulaire de contact avec EDUFramework et la mise en place d\'un environnement de production conteneurisé avec Docker, incluant la configuration de Nginx, PHP 8.3, MySQL et phpMyAdmin pour le déploiement automatisé.'
+            ],
+            features: [
+                {
+                    icon: '📝',
+                    title: 'Formulaire de Contact',
+                    description: 'Application web fonctionnelle avec formulaire HTML/CSS/PHP et message de confirmation'
+                },
+                {
+                    icon: '🐳',
+                    title: 'Conteneurisation Docker',
+                    description: 'Environnement complet avec docker-compose.yml pour Nginx, PHP 8.3, MySQL et phpMyAdmin'
+                },
+                {
+                    icon: '⚙️',
+                    title: 'Configuration Nginx',
+                    description: 'Serveur web Nginx configuré pour servir l\'application PHP avec optimisations performances'
+                },
+                {
+                    icon: '🚀',
+                    title: 'Déploiement Automatisé',
+                    description: 'Intégration de Deployer pour automatiser le processus de déploiement en production'
+                },
+                {
+                    icon: '🤝',
+                    title: 'Collaboration SLAM/SISR',
+                    description: 'Travail en équipe entre développeurs et administrateurs système pour une mise en production réussie'
+                },
+                {
+                    icon: '💾',
+                    title: 'Base de Données',
+                    description: 'MySQL configuré avec phpMyAdmin pour la gestion des données de l\'application'
+                }
+            ],
+            techStack: {
+                'Développement': ['EDUFramework', 'PHP 8.3', 'HTML5', 'CSS3', 'JavaScript'],
+                'Infrastructure': ['Docker', 'Docker Compose', 'Nginx', 'MySQL 8', 'phpMyAdmin'],
+                'DevOps': ['Deployer', 'Git', 'Automatisation du déploiement'],
+                'Outils': ['VS Code', 'Terminal', 'Docker Desktop']
+            },
+            challenges: [
+                {
+                    title: 'Collaboration SLAM/SISR',
+                    description: 'Coordination entre développeurs et administrateurs pour aligner les besoins de développement avec les contraintes d\'infrastructure et de déploiement.'
+                },
+                {
+                    title: 'Containerisation de l\'Application',
+                    description: 'Configuration d\'un environnement Docker multi-conteneurs avec services interconnectés (Nginx, PHP-FPM, MySQL) et gestion des volumes persistants.'
+                },
+                {
+                    title: 'Configuration Nginx et PHP',
+                    description: 'Mise en place de la configuration Nginx optimale pour servir une application PHP avec FastCGI et gestion des rewrites URL.'
+                },
+                {
+                    title: 'Automatisation du Déploiement',
+                    description: 'Intégration de Deployer pour automatiser le processus de mise en production avec tests et rollback en cas d\'erreur.'
+                }
+            ],
+            results: [
+                { metric: 'Durée du projet', value: '4 heures', icon: '⏱️' },
+                { metric: 'Environnement', value: 'Docker', icon: '🐳' },
+                { metric: 'Déploiement', value: 'Automatisé', icon: '🚀' }
+            ],
+            deliverables: {
+                enabled: false,
+                images: []
+            },
+            links: [
+                {text: 'Documentation EDUFramework', url: 'https://studooapp.github.io/edu-framework/'},
+                {text: 'Documentation Deployer', url: 'https://deployer.org/'}
             ]
         }
     };
@@ -281,7 +429,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'Projets Scolaires',
             description: 'Travaux réalisés en formation BTS SIO',
             icon: '🎓',
-            projects: ['immosync', 'travaux-symfony']
+            projects: ['immosync', 'travaux-symfony', 'endgame-eduframe']
         }
     };
 
@@ -522,6 +670,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const linksDiv = document.querySelector('.project-links');
         linksDiv.innerHTML = '';
+
+        // NOUVEAU: Bouton "Voir les livrables" (toujours affiché)
+        const delivBtn = document.createElement('button');
+        delivBtn.className = 'btn-deliverables';
+        delivBtn.textContent = '📸 Voir les livrables';
+        delivBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            showDeliverablesModal(projectId);
+        });
+        linksDiv.appendChild(delivBtn);
+
+        // Boutons existants (Visiter/Code)
         project.links.forEach(link => {
             const a = document.createElement('a');
             a.href = link.url;
@@ -531,6 +691,8 @@ document.addEventListener('DOMContentLoaded', function() {
             linksDiv.appendChild(a);
         });
 
+        currentProjectId = projectId;
+
         // Affichage du détail
         projectDetail.classList.remove('hidden');
         categoriesView.classList.add('hidden');
@@ -538,13 +700,107 @@ document.addEventListener('DOMContentLoaded', function() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Fonction obsolète - remplacée par showCategoriesView()
-    // function showProjectsOverview() {
-    //     projectDetail.classList.remove('active');
-    //     projectDetail.classList.add('hidden');
-    //     projectsOverview.classList.remove('hidden');
-    //     backBtn.classList.add('hidden');
-    // }
+    // ========== DELIVERABLES MODAL FUNCTIONS ==========
+    function showDeliverablesModal(projectId) {
+        const project = projectsData[projectId];
+        if (!project) return;
+
+        // Mettre à jour titre
+        document.getElementById('deliverables-title').textContent = `Livrables - ${project.title}`;
+
+        const gallery = document.getElementById('deliverables-gallery');
+        gallery.innerHTML = '';
+
+        // Si pas de livrables ou disabled, afficher message
+        if (!project.deliverables || !project.deliverables.enabled || !project.deliverables.images || project.deliverables.images.length === 0) {
+            gallery.innerHTML = `
+                <div style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">📸</div>
+                    <h3 style="color: #00d4ff; font-size: 1.5rem; margin-bottom: 1rem;">Livrables à venir</h3>
+                    <p style="color: #a0aec0; font-size: 1rem;">Les preuves de travail pour ce projet seront ajoutées prochainement.</p>
+                </div>
+            `;
+            deliverablesModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            return;
+        }
+
+        // Générer la galerie
+        project.deliverables.images.forEach((deliverable, index) => {
+            const item = document.createElement('div');
+            item.className = 'deliverable-item';
+            item.dataset.index = index;
+
+            item.innerHTML = `
+                <div class="deliverable-image-container">
+                    <img class="deliverable-image" src="${deliverable.src}" alt="${deliverable.title}" loading="lazy">
+                    <div class="deliverable-overlay">
+                        <span class="deliverable-overlay-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="deliverable-info">
+                    <span class="deliverable-category">${deliverable.category}</span>
+                    <h3>${deliverable.title}</h3>
+                    <p>${deliverable.description}</p>
+                </div>
+            `;
+
+            // Event listener pour lightbox
+            item.addEventListener('click', function() {
+                openImageLightbox(deliverable);
+            });
+
+            gallery.appendChild(item);
+        });
+
+        // Afficher modal
+        deliverablesModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+
+        // Scroll to top
+        const modalContent = document.querySelector('.deliverables-content');
+        if (modalContent) modalContent.scrollTop = 0;
+    }
+
+    function closeDeliverablesModal() {
+        deliverablesModal.classList.add('hidden');
+        document.body.style.overflow = '';
+    }
+
+    function openImageLightbox(deliverable) {
+        document.getElementById('lightbox-image').src = deliverable.src;
+        document.getElementById('lightbox-title').textContent = deliverable.title;
+        document.getElementById('lightbox-description').textContent = deliverable.description;
+        imageLightbox.classList.remove('hidden');
+    }
+
+    function closeLightbox() {
+        imageLightbox.classList.add('hidden');
+    }
+
+    // Event listeners pour les modals
+    document.getElementById('close-deliverables').addEventListener('click', closeDeliverablesModal);
+    document.getElementById('close-lightbox').addEventListener('click', closeLightbox);
+
+    // Fermer en cliquant sur fond
+    deliverablesModal.addEventListener('click', function(e) {
+        if (e.target === deliverablesModal) closeDeliverablesModal();
+    });
+
+    imageLightbox.addEventListener('click', function(e) {
+        if (e.target === imageLightbox) closeLightbox();
+    });
+
+    // Support clavier ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            if (!imageLightbox.classList.contains('hidden')) {
+                closeLightbox();
+            } else if (!deliverablesModal.classList.contains('hidden')) {
+                closeDeliverablesModal();
+            }
+        }
+    });
 
     /* ======== ANIMATION DES PARTICULES ======== */
     class Particle {

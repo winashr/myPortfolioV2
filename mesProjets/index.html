@@ -38,7 +38,7 @@
                     <div class="category-icon">🎓</div>
                     <h2>Projets Scolaires</h2>
                     <p>Travaux réalisés en formation BTS SIO</p>
-                    <div class="project-count">2 projets</div>
+                    <div class="project-count">3 projets</div>
                     <div class="arrow-large">→</div>
                 </div>
             </div>
@@ -76,6 +76,34 @@
                     <div class="description"></div>
                     <div class="features-grid"></div>
                     <div class="project-links"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal pour les livrables -->
+        <div id="deliverables-modal" class="deliverables-modal hidden">
+            <div class="deliverables-content">
+                <button class="close-modal" id="close-deliverables">✕</button>
+
+                <div class="deliverables-header">
+                    <h2 id="deliverables-title">Livrables du Projet</h2>
+                    <p id="deliverables-subtitle">Preuves et réalisations</p>
+                </div>
+
+                <div class="deliverables-gallery" id="deliverables-gallery">
+                    <!-- Galerie générée dynamiquement -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Lightbox pour agrandir les images -->
+        <div id="image-lightbox" class="image-lightbox hidden">
+            <div class="lightbox-content">
+                <button class="lightbox-close" id="close-lightbox">✕</button>
+                <img id="lightbox-image" class="lightbox-image" src="" alt="">
+                <div class="lightbox-info">
+                    <h3 id="lightbox-title"></h3>
+                    <p id="lightbox-description"></p>
                 </div>
             </div>
         </div>
