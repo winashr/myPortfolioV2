@@ -72,22 +72,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 enabled: true,  // ✅ Activé!
                 images: [
                     {
-                        src: '/images/livrables/hsm-immo/screenshot-homepage.jpg',
-                        title: 'Page d\'accueil',
-                        description: 'Interface principale responsive avec navigation moderne',
-                        category: 'Interface'
+                        src: '/images/livrables/hsm-immo/ScrumJira.png',
+                        title: 'Méthode Agile Scrum',
+                        description: 'Interface des tâchjes et sprints sur Jira pour une gestion de projet efficace',
+                        category: 'Gestion de Projet'
                     },
                     {
-                        src: '/images/livrables/hsm-immo/screenshot-contact.jpg',
-                        title: 'Formulaire de contact',
-                        description: 'Intégration API Mailjet pour l\'envoi d\'emails',
+                        src: '/images/livrables/hsm-immo/DemandeClient.jpeg',
+                        title: 'Demande Client',
+                        description: 'Document de demande initiale du client avec les exigences fonctionnelles et techniques',
                         category: 'Fonctionnalité'
-                    },
-                    {
-                        src: '/images/livrables/hsm-immo/lighthouse-report.png',
-                        title: 'Rapport Lighthouse',
-                        description: 'Score de performance et accessibilité',
-                        category: 'Performance'
                     }
                 ]
             },
@@ -256,8 +250,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 { metric: 'Base de données', value: 'MySQL', icon: '💾' }
             ],
             deliverables: {
-                enabled: false,
-                images: []
+                enabled: true,
+                images: [
+                    {
+                        src: '/images/livrables/immosync/workflow.png',
+                        title: 'Fonctionnalités de l\'application',
+                        description: 'Illustration des différentes fonctionnalités de l\'application et de leur interaction',
+                        category: 'Fonctionnalité'
+                    },
+                    {
+                        src: '/images/livrables/immosync/gestadmin.png',
+                        title: 'Interface Administrateur',
+                        description: 'Interface pour la gestion des utilisateurs / entités avec JavaFX et FXML',
+                        category: 'Interface'
+                    },
+                    {
+                        src: '/images/livrables/immosync/gestchantier.png',
+                        title: 'Interface gestionnaire',
+                        description: 'Interface pour la gestion des chantiers avec JavaFX et FXML',
+                        category: 'Interface'
+                    }
+                ]
             },
             links: [
                 {text: 'Voir le code source', url: 'https://github.com/ort-montreuil/BTS-SIO-G2-2026-GESTTRAVAUX-Java'}
@@ -324,6 +337,83 @@ document.addEventListener('DOMContentLoaded', function() {
             links: [
                 {text: 'Voir le code source', url: 'https://github.com/ort-montreuil/BTS-SIO-G2-2026-GESTTRAVAUX-Web'}
             ]
+        },
+        'endgame-eduframe': {
+            title: 'EndGame - Déploiement EDUFramework',
+            tech: ['EDUFramework', 'Docker', 'Nginx', 'PHP 8.3', 'MySQL', 'phpMyAdmin', 'Deployer', 'DevOps'],
+            fullDescription: [
+                'Projet de déploiement complet d\'une application web avec EDUFramework, du développement à la mise en production. Collaboration entre développeurs (SLAM) et administrateurs système (SISR) pour comprendre l\'intégralité du cycle de vie d\'une application.',
+                'Le projet intègre la création d\'un formulaire de contact avec EDUFramework et la mise en place d\'un environnement de production conteneurisé avec Docker, incluant la configuration de Nginx, PHP 8.3, MySQL et phpMyAdmin pour le déploiement automatisé.'
+            ],
+            features: [
+                {
+                    icon: '📝',
+                    title: 'Formulaire de Contact',
+                    description: 'Application web fonctionnelle avec formulaire HTML/CSS/PHP et message de confirmation'
+                },
+                {
+                    icon: '🐳',
+                    title: 'Conteneurisation Docker',
+                    description: 'Environnement complet avec docker-compose.yml pour Nginx, PHP 8.3, MySQL et phpMyAdmin'
+                },
+                {
+                    icon: '⚙️',
+                    title: 'Configuration Nginx',
+                    description: 'Serveur web Nginx configuré pour servir l\'application PHP avec optimisations performances'
+                },
+                {
+                    icon: '🚀',
+                    title: 'Déploiement Automatisé',
+                    description: 'Intégration de Deployer pour automatiser le processus de déploiement en production'
+                },
+                {
+                    icon: '🤝',
+                    title: 'Collaboration SLAM/SISR',
+                    description: 'Travail en équipe entre développeurs et administrateurs système pour une mise en production réussie'
+                },
+                {
+                    icon: '💾',
+                    title: 'Base de Données',
+                    description: 'MySQL configuré avec phpMyAdmin pour la gestion des données de l\'application'
+                }
+            ],
+            techStack: {
+                'Développement': ['EDUFramework', 'PHP 8.3', 'HTML5', 'CSS3', 'JavaScript'],
+                'Infrastructure': ['Docker', 'Docker Compose', 'Nginx', 'MySQL 8', 'phpMyAdmin'],
+                'DevOps': ['Deployer', 'Git', 'Automatisation du déploiement'],
+                'Outils': ['VS Code', 'Terminal', 'Docker Desktop']
+            },
+            challenges: [
+                {
+                    title: 'Collaboration SLAM/SISR',
+                    description: 'Coordination entre développeurs et administrateurs pour aligner les besoins de développement avec les contraintes d\'infrastructure et de déploiement.'
+                },
+                {
+                    title: 'Containerisation de l\'Application',
+                    description: 'Configuration d\'un environnement Docker multi-conteneurs avec services interconnectés (Nginx, PHP-FPM, MySQL) et gestion des volumes persistants.'
+                },
+                {
+                    title: 'Configuration Nginx et PHP',
+                    description: 'Mise en place de la configuration Nginx optimale pour servir une application PHP avec FastCGI et gestion des rewrites URL.'
+                },
+                {
+                    title: 'Automatisation du Déploiement',
+                    description: 'Intégration de Deployer pour automatiser le processus de mise en production avec tests et rollback en cas d\'erreur.'
+                }
+            ],
+            results: [
+                { metric: 'Durée du projet', value: '4 heures', icon: '⏱️' },
+                { metric: 'Environnement', value: 'Docker', icon: '🐳' },
+                { metric: 'Déploiement', value: 'Automatisé', icon: '🚀' }
+            ],
+            deliverables: {
+                enabled: false,
+                images: []
+            },
+            links: [
+                {text: 'Documentation EDUFramework', url: 'https://studooapp.github.io/edu-framework/'},
+                {text: 'Documentation Deployer', url: 'https://deployer.org/'}
+            ]
         }
     };
 
@@ -339,7 +429,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'Projets Scolaires',
             description: 'Travaux réalisés en formation BTS SIO',
             icon: '🎓',
-            projects: ['immosync', 'travaux-symfony']
+            projects: ['immosync', 'travaux-symfony', 'endgame-eduframe']
         }
     };
 
