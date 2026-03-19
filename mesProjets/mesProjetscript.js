@@ -407,8 +407,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 { metric: 'Déploiement', value: 'Automatisé', icon: '🚀' }
             ],
             deliverables: {
-                enabled: false,
-                images: []
+                enabled: true,
+                images: [
+                    {
+                        src: '/images/livrables/endgame-eduframe/instruction.png',
+                        title: 'Instructions de mise en production',
+                        description: 'Documentation détaillée des étapes de déploiement de l\'application avec Docker et Deployer',
+                        category: 'Fonctionnalité'
+                    },
+                ]
             },
             links: [
                 {text: 'Documentation EDUFramework', url: 'https://studooapp.github.io/edu-framework/'},
