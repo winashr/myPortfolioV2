@@ -1,4 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // ========== THEME TOGGLE FUNCTIONALITY ==========
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+
+    // Check for saved theme preference or default to dark
+    const savedTheme = localStorage.getItem('portfolio-theme');
+    if (savedTheme) {
+      html.setAttribute('data-theme', savedTheme);
+    }
+
+    // Toggle theme on button click
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+        if (newTheme === 'dark') {
+          html.removeAttribute('data-theme');
+        } else {
+          html.setAttribute('data-theme', newTheme);
+        }
+
+        localStorage.setItem('portfolio-theme', newTheme);
+      });
+    }
+
     const btnScolaire = document.getElementById('btn-scolaire');
     const btnPro = document.getElementById('btn-pro');
     const btnBts = document.getElementById('btn-bts');

@@ -1,4 +1,30 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // ========== THEME TOGGLE FUNCTIONALITY ==========
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+
+    // Check for saved theme preference or default to dark
+    const savedTheme = localStorage.getItem('portfolio-theme');
+    if (savedTheme) {
+      html.setAttribute('data-theme', savedTheme);
+    }
+
+    // Toggle theme on button click
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+        if (newTheme === 'dark') {
+          html.removeAttribute('data-theme');
+        } else {
+          html.setAttribute('data-theme', newTheme);
+        }
+
+        localStorage.setItem('portfolio-theme', newTheme);
+      });
+    }
+
     // ========== DOM REFERENCES ==========
     const categoriesView = document.getElementById('categories-view');
     const projectsListView = document.getElementById('projects-list-view');
@@ -259,12 +285,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 enabled: true,
                 images: [
                     {
-                        src: '/images/livrables/immosync/workflow.png',
-                        title: 'Fonctionnalités de l\'application',
-                        description: 'Illustration des différentes fonctionnalités de l\'application et de leur interaction',
-                        category: 'Fonctionnalité'
-                    },
-                    {
                         src: '/images/livrables/immosync/gestadmin.png',
                         title: 'Interface Administrateur',
                         description: 'Interface pour la gestion des utilisateurs / entités avec JavaFX et FXML',
@@ -275,6 +295,12 @@ document.addEventListener('DOMContentLoaded', function() {
                         title: 'Interface gestionnaire',
                         description: 'Interface pour la gestion des chantiers avec JavaFX et FXML',
                         category: 'Interface'
+                    },
+                    {
+                        src: '/images/livrables/immosync/workflow.png',
+                        title: 'Fonctionnalités de l\'application',
+                        description: 'Illustration des différentes fonctionnalités de l\'application et de leur interaction',
+                        category: 'Fonctionnalité'
                     }
                 ]
             },
@@ -346,9 +372,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         category: 'Interface'
                     },
                     {
-                        src: '/images/livrables/travaux-symfony/webadmin.png',
-                        title: 'Interface Administrateur',
-                        description: 'Interface dédiée aux admins pour la gestion des utilisateurs',
+                        src: '/images/livrables/travaux-symfony/webentrep.png',
+                        title: 'Interface Entrepreneur',
+                        description: 'Interface dédiée aux entrepreneurs pour la gestion de leurs projets',
                         category: 'Interface'
                     },  
                     { 
@@ -448,7 +474,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         category: 'Fonctionnalité'
                     },
                     {
-                        src: '/images/livrables/endgame/architec.png',
+                        src: '/images/livrables/endgame/architect.png',
                         title: 'Architecture de l\'environnement de production',
                         description: 'Schéma de l\'architecture Docker avec les différents services (Nginx, PHP, MySQL) et leurs interactions',
                         category: 'Architecture'
@@ -527,13 +553,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 enabled: true,
                 images: [
                     {
-                        src: '/images/livrables/gestion-restaurant/gestrestau.png',
+                        src: '/images/livrables/gestrestau/gestrestau.png',
                         title: 'Interface de gestion de cartes',
                         description: 'Interface de gestion des cartes de restaurant avec JavaFX et XAML',
                         category: 'Interface'
                     },
                     {
-                        src: '/images/livrables/gestrestau/architec.png',
+                        src: '/images/livrables/gestrestau/architect.png',
                         title: 'Architecture',
                         description: 'Schéma de l\'architecture de l\'application avec les interactions entre les composants',
                         category: 'Architecture'
@@ -557,7 +583,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'Projets Scolaires',
             description: 'Travaux réalisés en formation BTS SIO',
             icon: '🎓',
-            projects: ['immosync', 'travaux-symfony', 'endgame-eduframe', 'gestion-restaurant']
+            projects: ['immosync', 'travaux-symfony', 'gestion-restaurant', 'endgame-eduframe']
         }
     };
 
