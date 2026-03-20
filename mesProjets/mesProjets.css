@@ -651,7 +651,7 @@ body {
 }
 
 .project-description {
-    color: #e2e8f0;
+    color: var(--text-primary);
     font-size: 1rem;
     line-height: 1.7;
     margin-bottom: 1.2rem;
@@ -763,7 +763,7 @@ body {
 
 /* Description */
 .description {
-    color: #e2e8f0;
+    color: var(--text-primary);
     font-size: 1.05rem;
     line-height: 1.8;
 }
@@ -807,13 +807,13 @@ body {
 .feature-section ul {
     list-style: disc;
     padding-left: 1.3rem;
-    color: #e2e8f0;
+    color: var(--text-primary);
 }
 
 .feature-section li {
     font-size: 0.98rem;
     line-height: 1.7;
-    color: #e8e8e8;
+    color: var(--text-primary);
     margin-bottom: 0.6rem;
 }
 
@@ -845,8 +845,8 @@ body {
 }
 
 .btn-secondary {
-    border: 1px solid rgba(255,255,255,0.3);
-    color: #e2e8f0;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
     padding: 0.7rem 1.3rem;
     border-radius: 8px;
     text-decoration: none;
@@ -1052,13 +1052,13 @@ body {
 .deliverable-info h3 {
     font-size: 1.05rem;
     font-weight: 600;
-    color: #ffffff;
+    color: var(--text-primary);
     margin-bottom: 0.5rem;
 }
 
 .deliverable-info p {
     font-size: 0.9rem;
-    color: #a0aec0;
+    color: var(--text-muted);
     line-height: 1.5;
 }
 
@@ -1111,12 +1111,12 @@ body {
 
 .lightbox-info h3 {
     font-size: 1.3rem;
-    color: #ffffff;
+    color: var(--text-primary);
     margin-bottom: 0.5rem;
 }
 
 .lightbox-info p {
-    color: #a0aec0;
+    color: var(--text-muted);
     font-size: 0.95rem;
 }
 
@@ -1200,7 +1200,7 @@ body {
 }
 
 .feature-card p {
-    color: #e2e8f0;
+    color: var(--text-primary);
     font-size: 1.05rem;
     line-height: 1.8;
 }
@@ -1234,7 +1234,7 @@ body {
 }
 
 .tech-category li {
-    color: #e8e8e8;
+    color: var(--text-primary);
     font-size: 0.98rem;
     line-height: 1.7;
     padding: 0.4rem 0;
@@ -1271,7 +1271,7 @@ body {
 }
 
 .challenge-card p {
-    color: #e2e8f0;
+    color: var(--text-primary);
     font-size: 1.05rem;
     line-height: 1.8;
 }
@@ -1311,7 +1311,7 @@ body {
 }
 
 .result-metric {
-    color: #cbd5e1;
+    color: var(--text-secondary);
     font-size: 0.9rem;
 }
 
@@ -1699,6 +1699,25 @@ body {
 [data-theme="light"] .detail-card,
 [data-theme="light"] .deliverables-content {
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .feature-card,
+[data-theme="light"] .tech-category,
+[data-theme="light"] .challenge-card {
+    background: rgba(241, 245, 249, 0.9);
+    border-color: rgba(0, 136, 204, 0.15);
+}
+
+[data-theme="light"] .result-card {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(124, 58, 237, 0.1));
+}
+
+[data-theme="light"] .deliverable-item {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="light"] .deliverable-image-container {
+    background: rgba(226, 232, 240, 0.5);
 }
 
 @media (max-width: 480px) {
