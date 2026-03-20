@@ -545,9 +545,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             ],
             results: [
-                { metric: 'Interface', value: 'WPF moderne', icon: '🎨' },
+                { metric: 'Interface', value: 'Java FX', icon: '🎨' },
                 { metric: 'Collections', value: 'HashMap', icon: '📊' },
-                { metric: 'Pattern', value: 'MVVM', icon: '🏛️' }
+                { metric: 'Pattern', value: 'MVC', icon: '🏛️' }
             ],
             deliverables: {
                 enabled: true,
