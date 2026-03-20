@@ -82,6 +82,12 @@ document.addEventListener('DOMContentLoaded', function() {
                         title: 'Demande Client',
                         description: 'Document de demande initiale du client avec les exigences fonctionnelles et techniques',
                         category: 'Fonctionnalité'
+                    },
+                    {
+                        src: '/images/livrables/hsm-immo/architect.png',
+                        title: 'Architecture du projet',
+                        description: 'Diagramme de l\'architecture technique du code HSM Immo, illustrant l\'organisation des composants et des flux de données',
+                        category: 'Architecture'
                     }
                 ]
             },
@@ -331,8 +337,28 @@ document.addEventListener('DOMContentLoaded', function() {
                 { metric: 'Base de données', value: 'Doctrine ORM', icon: '💾' }
             ],
             deliverables: {
-                enabled: false,
-                images: []
+                enabled: true,
+                images: [
+                    {
+                        src: '/images/livrables/travaux-symfony/webinspect.png',
+                        title: 'Interface Inspecteur',
+                        description: 'Interface dédiée aux inspecteurs pour le suivi des chantiers et interventions',
+                        category: 'Interface'
+                    },
+                    {
+                        src: '/images/livrables/travaux-symfony/webadmin.png',
+                        title: 'Interface Administrateur',
+                        description: 'Interface dédiée aux admins pour la gestion des utilisateurs',
+                        category: 'Interface'
+                    },  
+                    { 
+                        src: '/images/livrables/travaux-symfony/architect.png',
+                        title: 'Architecture MVC',
+                        description: 'Schéma de l\'architecture MVC de l\'application avec les interactions entre les composants',
+                        category: 'Architecture'
+                    }
+                        
+                ]
             },
             links: [
                 {text: 'Voir le code source', url: 'https://github.com/ort-montreuil/BTS-SIO-G2-2026-GESTTRAVAUX-Web'}
@@ -410,17 +436,112 @@ document.addEventListener('DOMContentLoaded', function() {
                 enabled: true,
                 images: [
                     {
-                        src: '/images/livrables/endgame-eduframe/instruction.png',
+                        src: '/images/livrables/endgame/endgamephotoi.png',
                         title: 'Instructions de mise en production',
                         description: 'Documentation détaillée des étapes de déploiement de l\'application avec Docker et Deployer',
                         category: 'Fonctionnalité'
                     },
+                    {
+                        src: '/images/livrables/endgame/formulaire.png',
+                        title: 'Formulaire de déploiement',
+                        description: 'Modèle de formulaire pour la soumission des demandes de déploiement',
+                        category: 'Fonctionnalité'
+                    },
+                    {
+                        src: '/images/livrables/endgame/architec.png',
+                        title: 'Architecture de l\'environnement de production',
+                        description: 'Schéma de l\'architecture Docker avec les différents services (Nginx, PHP, MySQL) et leurs interactions',
+                        category: 'Architecture'
+                    }
                 ]
             },
             links: [
                 {text: 'Documentation EDUFramework', url: 'https://studooapp.github.io/edu-framework/'},
                 {text: 'Documentation Deployer', url: 'https://deployer.org/'}
             ]
+        },
+        'gestion-restaurant': {
+            title: 'Gestion Restaurant - Création de Menus',
+            tech: ['Java', 'JavaFX', 'XAML', 'HashMap', 'TreeView'],
+            fullDescription: [
+                'Application de gestion de cartes de restaurant permettant de créer des menus pour différentes saisons. L\'application utilise des collections HashMap pour stocker les plats par catégorie (Entrées, Plats, Desserts) et par carte/menu.',
+                'L\'interface permet de sélectionner des catégories, d\'ajouter des plats aux menus (maximum 3 par menu), de visualiser la composition via un TreeView interactif et de calculer automatiquement le prix total de chaque menu.'
+            ],
+            features: [
+                {
+                    icon: '🍽️',
+                    title: 'Gestion des Plats',
+                    description: 'Stockage des plats dans une HashMap par catégorie (Entrées, Plats, Desserts) avec chargement dynamique'
+                },
+                {
+                    icon: '📋',
+                    title: 'Création de Menus',
+                    description: 'Ajout de plats aux menus avec validation (maximum 3 plats par menu) et vérification des doublons'
+                },
+                {
+                    icon: '🌳',
+                    title: 'TreeView Interactif',
+                    description: 'Visualisation hiérarchique des cartes, menus et plats avec gestion des clics pour suppression'
+                },
+                {
+                    icon: '💰',
+                    title: 'Calcul Prix Total',
+                    description: 'Calcul automatique et mise à jour du prix total du menu en fonction des plats sélectionnés'
+                },
+                {
+                    icon: '🖼️',
+                    title: 'Affichage Images',
+                    description: 'Affichage conditionnel des images des plats uniquement si le menu est complet (3 plats)'
+                },
+                {
+                    icon: '🗑️',
+                    title: 'Suppression Dynamique',
+                    description: 'Suppression des plats via clic dans le TreeView avec mise à jour automatique du prix'
+                }
+            ],
+            techStack: {
+                'Interface & Design': ['JAVAFX', 'XAML', 'TreeView', 'ComboBox', 'DataBinding'],
+                'Backend & Architecture': ['Java', 'Collections HashMap', 'SpringBoot', 'Gestion événements'],
+                'Fonctionnalités': ['Validation données', 'Calcul dynamique', 'Affichage conditionnel']
+            },
+            challenges: [
+                {
+                    title: 'Gestion des Collections',
+                    description: 'Utilisation de HashMap imbriquées pour stocker les plats par catégorie et les menus par carte, avec accès efficace aux données.'
+                },
+                {
+                    title: 'TreeView Dynamique',
+                    description: 'Manipulation du TreeView pour ajouter, afficher et supprimer des éléments de manière hiérarchique (Carte > Menu > Plat).'
+                },
+                {
+                    title: 'Logique de Validation',
+                    description: 'Implémentation des règles métier : maximum 3 plats par menu, vérification des doublons, affichage conditionnel des images.'
+                }
+            ],
+            results: [
+                { metric: 'Interface', value: 'WPF moderne', icon: '🎨' },
+                { metric: 'Collections', value: 'HashMap', icon: '📊' },
+                { metric: 'Pattern', value: 'MVVM', icon: '🏛️' }
+            ],
+            deliverables: {
+                enabled: true,
+                images: [
+                    {
+                        src: '/images/livrables/gestion-restaurant/gestrestau.png',
+                        title: 'Interface de gestion de cartes',
+                        description: 'Interface de gestion des cartes de restaurant avec JavaFX et XAML',
+                        category: 'Interface'
+                    },
+                    {
+                        src: '/images/livrables/gestrestau/architec.png',
+                        title: 'Architecture',
+                        description: 'Schéma de l\'architecture de l\'application avec les interactions entre les composants',
+                        category: 'Architecture'
+                    }
+                        
+                ]
+            },
+            links: []
         }
     };
 
@@ -436,7 +557,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'Projets Scolaires',
             description: 'Travaux réalisés en formation BTS SIO',
             icon: '🎓',
-            projects: ['immosync', 'travaux-symfony', 'endgame-eduframe']
+            projects: ['immosync', 'travaux-symfony', 'endgame-eduframe', 'gestion-restaurant']
         }
     };
 
