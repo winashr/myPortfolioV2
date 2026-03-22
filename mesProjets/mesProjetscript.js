@@ -564,10 +564,86 @@ document.addEventListener('DOMContentLoaded', function() {
                         description: 'Schéma de l\'architecture de l\'application avec les interactions entre les composants',
                         category: 'Architecture'
                     }
-                        
+
                 ]
             },
             links: []
+        },
+        'server-exploxer': {
+            title: 'ServerExploxer - Outil de Pentest SSH',
+            tech: ['Python 3', 'PyQt6', 'Paramiko', 'SSH', 'Nmap', 'SQLMap', 'Metasploit'],
+            fullDescription: [
+                'Application desktop PyQt6 permettant de piloter un serveur Linux distant via SSH et de lancer des actions de pentest assistées. ServerExploxer offre une interface graphique unique pour l\'exploration système, les scans de sécurité et les tests d\'intrusion.',
+                'Le projet intègre des outils de cybersécurité reconnus comme Nmap, SQLMap et Metasploit, pilotés depuis une interface conviviale. Destiné aux environnements autorisés (lab, CTF, audit contractuel), il simplifie les tâches de reconnaissance et de test de vulnérabilités.'
+            ],
+            features: [
+                {
+                    icon: '🔐',
+                    title: 'Connexion SSH Sécurisée',
+                    description: 'Connexion sécurisée via Paramiko avec gestion des identifiants et des sessions persistantes'
+                },
+                {
+                    icon: '📁',
+                    title: 'Explorateur de Fichiers Distant',
+                    description: 'Navigation dans l\'arborescence du serveur distant avec recherche, actions contextuelles et visualisation'
+                },
+                {
+                    icon: '🖥️',
+                    title: 'Shell Interactif',
+                    description: 'Exécution de commandes shell distantes avec retour en temps réel et historique des commandes'
+                },
+                {
+                    icon: '🔍',
+                    title: 'Intégration Nmap',
+                    description: 'Boîte de dialogue Nmap avec modes de scan rapide, détaillé et complet pour la reconnaissance réseau'
+                },
+                {
+                    icon: '💉',
+                    title: 'Module SQLMap Avancé',
+                    description: 'Test d\'injection SQL, exploration de bases de données, dump de données avec options avancées (risk, level, tamper)'
+                },
+                {
+                    icon: '🎯',
+                    title: 'Pilotage Metasploit',
+                    description: 'Chargement de modules, scanners rapides, génération de payloads, gestion des sessions et post-exploitation'
+                }
+            ],
+            techStack: {
+                'Interface & Design': ['PyQt6', 'Qt Designer', 'QSS Styling', 'Responsive Layout'],
+                'Backend & Core': ['Python 3.10+', 'Paramiko SSH', 'Architecture modulaire', 'Gestion asynchrone'],
+                'Outils Intégrés': ['Nmap', 'SQLMap', 'Metasploit Framework', 'msfconsole'],
+                'Sécurité': ['SSH Protocol', 'Gestion des permissions', 'Audit de sécurité']
+            },
+            challenges: [
+                {
+                    title: 'Architecture Modulaire',
+                    description: 'Conception d\'une architecture en couches (core/ui) permettant une séparation claire entre la logique métier SSH/outils et l\'interface graphique PyQt6.'
+                },
+                {
+                    title: 'Intégration Multi-Outils',
+                    description: 'Pilotage unifié de différents outils de sécurité (Nmap, SQLMap, Metasploit) via SSH avec parsing des résultats et affichage structuré.'
+                },
+                {
+                    title: 'Gestion des Sessions SSH',
+                    description: 'Maintien de sessions SSH persistantes avec gestion des timeouts, reconnexion automatique et exécution de commandes longues.'
+                },
+                {
+                    title: 'Interface Utilisateur Intuitive',
+                    description: 'Création d\'une interface graphique accessible rendant les outils de pentest utilisables sans connaissance approfondie de la ligne de commande.'
+                }
+            ],
+            results: [
+                { metric: 'Interface', value: 'PyQt6', icon: '🖥️' },
+                { metric: 'Protocole', value: 'SSH', icon: '🔐' },
+                { metric: 'Outils', value: '3 intégrés', icon: '🛠️' }
+            ],
+            deliverables: {
+                enabled: false,
+                images: []
+            },
+            links: [
+                {text: 'Voir le code source', url: 'https://github.com/votre-username/ServerExploxer'}
+            ]
         }
     };
 
@@ -584,6 +660,12 @@ document.addEventListener('DOMContentLoaded', function() {
             description: 'Travaux réalisés en formation BTS SIO',
             icon: '🎓',
             projects: ['immosync', 'travaux-symfony', 'gestion-restaurant', 'endgame-eduframe']
+        },
+        personal: {
+            title: 'Projets Personnels',
+            description: 'Réalisations et expérimentations personnelles',
+            icon: '🚀',
+            projects: ['server-exploxer']
         }
     };
 
@@ -643,6 +725,10 @@ document.addEventListener('DOMContentLoaded', function() {
             header.style.background = 'linear-gradient(135deg, #a855f7, #7c3aed)';
             header.style.webkitBackgroundClip = 'text';
             header.style.webkitTextFillColor = 'transparent';
+        } else if (category === 'personal') {
+            header.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+            header.style.webkitBackgroundClip = 'text';
+            header.style.webkitTextFillColor = 'transparent';
         } else {
             header.style.background = 'linear-gradient(135deg, #00d4ff, #0099ff)';
             header.style.webkitBackgroundClip = 'text';
@@ -662,7 +748,7 @@ document.addEventListener('DOMContentLoaded', function() {
             card.dataset.project = projectId;
             card.innerHTML = `
                 <div class="project-header">
-                    <div class="project-icon">${projectId === 'hsm-immo' ? '🏠' : projectId === 'hsm-immo-perf' ? '⚡' : projectId === 'immosync' ? '🛠️' : '💻'}</div>
+                    <div class="project-icon">${projectId === 'hsm-immo' ? '🏠' : projectId === 'hsm-immo-perf' ? '⚡' : projectId === 'immosync' ? '🛠️' : projectId === 'server-exploxer' ? '🔐' : '💻'}</div>
                     <h3>${project.title}</h3>
                 </div>
                 <p class="project-description">${project.fullDescription[0]}</p>
