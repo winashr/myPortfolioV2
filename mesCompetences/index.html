@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Competences - Portfolio</title>
+    <link rel="stylesheet" href="mesCompetences.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+      <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+    </button>
+
+    <canvas id="particleCanvas"></canvas>
+
+    <div class="container">
+        <div class="header">
+            <h1 id="name3d" class="name-3d">Mes Competences</h1>
+            <p>Technologies maitrisees et competences BTS SIO SLAM</p>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="tabs-container">
+            <button class="tab-btn active" data-tab="stacks">
+                <span class="tab-icon">&#128187;</span>
+                Stacks Techniques
+            </button>
+            <button class="tab-btn" data-tab="bts">
+                <span class="tab-icon">&#127891;</span>
+                Competences BTS
+            </button>
+        </div>
+
+        <!-- Section Stacks Techniques -->
+        <section id="stacks-section" class="section-content active">
+            <div class="stacks-grid">
+
+                <!-- Frontend -->
+                <div class="stack-category frontend-stack">
+                    <div class="stack-header">
+                        <div class="stack-icon">&#128421;</div>
+                        <h2>Frontend</h2>
+                    </div>
+                    <div class="tech-list">
+                        <div class="tech-item"><span class="tech-name">React</span></div>
+                        <div class="tech-item"><span class="tech-name">TypeScript</span></div>
+                        <div class="tech-item"><span class="tech-name">JavaFX / FXML</span></div>
+                        <div class="tech-item"><span class="tech-name">Bootstrap 5</span></div>
+                        <div class="tech-item"><span class="tech-name">PyQt6</span></div>
+                        <div class="tech-item"><span class="tech-name">Twig</span></div>
+                        
+                    </div>
+                </div>
+
+                <!-- Backend -->
+                <div class="stack-category backend-stack">
+                    <div class="stack-header">
+                        <div class="stack-icon">&#9881;</div>
+                        <h2>Backend</h2>
+                    </div>
+                    <div class="tech-list">
+                        <div class="tech-item"><span class="tech-name">PHP</span></div>
+                        <div class="tech-item"><span class="tech-name">Symfony</span></div>
+                        <div class="tech-item"><span class="tech-name">Java</span></div>
+                        <div class="tech-item"><span class="tech-name">Python</span></div>
+                        <div class="tech-item"><span class="tech-name">Doctrine ORM</span></div>
+                        <div class="tech-item"><span class="tech-name">SpringBoot</span></div>
+                        <div class="tech-item"><span class="tech-name">API REST</span></div>
+                    </div>
+                </div>
+
+                <!-- Base de donnees -->
+                <div class="stack-category database-stack">
+                    <div class="stack-header">
+                        <div class="stack-icon">&#128451;</div>
+                        <h2>Base de donnees</h2>
+                    </div>
+                    <div class="tech-list">
+                        <div class="tech-item"><span class="tech-name">MySQL</span></div>
+                        <div class="tech-item"><span class="tech-name">phpMyAdmin</span></div>
+                    </div>
+                </div>
+
+                <!-- DevOps -->
+                <div class="stack-category devops-stack">
+                    <div class="stack-header">
+                        <div class="stack-icon">&#128640;</div>
+                        <h2>DevOps</h2>
+                    </div>
+                    <div class="tech-list">
+                        <div class="tech-item"><span class="tech-name">Docker</span></div>
+                        <div class="tech-item"><span class="tech-name">Nginx</span></div>
+                        <div class="tech-item"><span class="tech-name">Maven</span></div>
+                        <div class="tech-item"><span class="tech-name">Vite</span></div>
+                        <div class="tech-item"><span class="tech-name">Git / GitHub</span></div>
+                    </div>
+                </div>
+
+                <!-- Securite -->
+                <div class="stack-category security-stack">
+                    <div class="stack-header">
+                        <div class="stack-icon">&#128274;</div>
+                        <h2>Securite / Pentest</h2>
+                    </div>
+                    <div class="tech-list">
+                        <div class="tech-item"><span class="tech-name">Nmap</span></div>
+                        <div class="tech-item"><span class="tech-name">SQLMap</span></div>
+                        <div class="tech-item"><span class="tech-name">Metasploit</span></div>
+                        <div class="tech-item"><span class="tech-name">Wireshark</span></div>
+                        <div class="tech-item"><span class="tech-name">ZAP OWASP</span></div>
+
+                    </div>
+                </div>
+
+                <!-- Outils & Autres -->
+                <div class="stack-category tools-stack">
+                    <div class="stack-header">
+                        <div class="stack-icon">&#128736;</div>
+                        <h2>Outils & Autres</h2>
+                    </div>
+                    <div class="tech-list">
+                        <div class="tech-item"><span class="tech-name">SceneBuilder</span></div>
+                        <div class="tech-item"><span class="tech-name">SEO</span></div>
+                        <div class="tech-item"><span class="tech-name">Linux</span></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section Competences BTS -->
+        <section id="bts-section" class="section-content">
+            <div class="bts-intro">
+                <p>Tableau recapitulatif des competences acquises dans le cadre du BTS SIO option SLAM</p>
+            </div>
+
+            <!-- Bloc 1 -->
+            <div class="competence-block">
+                <div class="block-header">
+                    <span class="block-number">B1</span>
+                    <h3>Gerer le patrimoine informatique</h3>
+                </div>
+                <div class="competence-table">
+                    <div class="table-header">
+                        <span>Competence</span>
+                        <span>Niveau</span>
+                    </div>
+                    <div class="competence-row">
+                        <span class="comp-name">Recenser et identifier les ressources numeriques</span>
+                        <div class="level-indicator level-3">
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot"></span>
+                        </div>
+                    </div>
+                    <div class="competence-row">
+                        <span class="comp-name">Exploiter des referentiels, normes et standards</span>
+                        <div class="level-indicator level-3">
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot"></span>
+                        </div>
+                    </div>
+                    <div class="competence-row">
+                        <span class="comp-name">Mettre en place et verifier les niveaux d'habilitation</span>
+                        <div class="level-indicator level-2">
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot"></span>
+                            <span class="level-dot"></span>
+                        </div>
+                    </div>
+                    <div class="competence-row">
+                        <span class="comp-name">Verifier les conditions de la continuite d'un service</span>
+                        <div class="level-indicator level-2">
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot"></span>
+                            <span class="level-dot"></span>
+                        </div>
+                    </div>
+                    <div class="competence-row">
+                        <span class="comp-name">Gerer des sauvegardes</span>
+                        <div class="level-indicator level-3">
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot"></span>
+                        </div>
+                    </div>
+                    <div class="competence-row">
+                        <span class="comp-name">Verifier le respect des regles d'utilisation des ressources</span>
+                        <div class="level-indicator level-2">
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot"></span>
+                            <span class="level-dot"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bloc 2 -->
+            <div class="competence-block">
+                <div class="block-header">
+                    <span class="block-number">B2</span>
+                    <h3>Repondre aux incidents et demandes</h3>
+                </div>
+                <div class="competence-table">
+                    <div class="table-header">
+                        <span>Competence</span>
+                        <span>Niveau</span>
+                    </div>
+                    <div class="competence-row">
+                        <span class="comp-name">Collecter, suivre et orienter des demandes</span>
+                        <div class="level-indicator level-3">
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot"></span>
+                        </div>
+                    </div>
+                    <div class="competence-row">
+                        <span class="comp-name">Traiter des demandes concernant les services reseau</span>
+                        <div class="level-indicator level-2">
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot"></span>
+                            <span class="level-dot"></span>
+                        </div>
+                    </div>
+                    <div class="competence-row">
+                        <span class="comp-name">Traiter des demandes concernant les applications</span>
+                        <div class="level-indicator level-3">
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bloc 3 -->
+            <div class="competence-block">
+                <div class="block-header">
+                    <span class="block-number">B3</span>
+                    <h3>Developper la presence en ligne</h3>
+                </div>
+                <div class="competence-table">
+                    <div class="table-header">
+                        <span>Competence</span>
+                        <span>Niveau</span>
+                    </div>
+                    <div class="competence-row">
+                        <span class="comp-name">Participer a la valorisation de l'image de l'organisation</span>
+                        <div class="level-indicator level-3">
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot"></span>
+                        </div>
+                    </div>
+                    <div class="competence-row">
+                        <span class="comp-name">Referencier les services en ligne</span>
+                        <div class="level-indicator level-3">
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot"></span>
+                        </div>
+                    </div>
+                    <div class="competence-row">
+                        <span class="comp-name">Participer a l'evolution d'un site Web</span>
+                        <div class="level-indicator level-4">
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bloc 4 -->
+            <div class="competence-block">
+                <div class="block-header">
+                    <span class="block-number">B4</span>
+                    <h3>Travailler en mode projet</h3>
+                </div>
+                <div class="competence-table">
+                    <div class="table-header">
+                        <span>Competence</span>
+                        <span>Niveau</span>
+                    </div>
+                    <div class="competence-row">
+                        <span class="comp-name">Analyser les objectifs et les modalites d'organisation</span>
+                        <div class="level-indicator level-3">
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot"></span>
+                        </div>
+                    </div>
+                    <div class="competence-row">
+                        <span class="comp-name">Planifier les activites</span>
+                        <div class="level-indicator level-3">
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot"></span>
+                        </div>
+                    </div>
+                    <div class="competence-row">
+                        <span class="comp-name">Evaluer les indicateurs de suivi et de pilotage</span>
+                        <div class="level-indicator level-2">
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot"></span>
+                            <span class="level-dot"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bloc 5 -->
+            <div class="competence-block">
+                <div class="block-header">
+                    <span class="block-number">B5</span>
+                    <h3>Mettre a disposition des utilisateurs un service</h3>
+                </div>
+                <div class="competence-table">
+                    <div class="table-header">
+                        <span>Competence</span>
+                        <span>Niveau</span>
+                    </div>
+                    <div class="competence-row">
+                        <span class="comp-name">Realiser les tests d'integration et d'acceptation</span>
+                        <div class="level-indicator level-3">
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot"></span>
+                        </div>
+                    </div>
+                    <div class="competence-row">
+                        <span class="comp-name">Deployer un service</span>
+                        <div class="level-indicator level-3">
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot"></span>
+                        </div>
+                    </div>
+                    <div class="competence-row">
+                        <span class="comp-name">Accompagner les utilisateurs</span>
+                        <div class="level-indicator level-2">
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot"></span>
+                            <span class="level-dot"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bloc 6 SLAM -->
+            <div class="competence-block slam-block">
+                <div class="block-header">
+                    <span class="block-number slam">B6</span>
+                    <h3>Developper des solutions applicatives (SLAM)</h3>
+                </div>
+                <div class="competence-table">
+                    <div class="table-header">
+                        <span>Competence</span>
+                        <span>Niveau</span>
+                    </div>
+                    <div class="competence-row">
+                        <span class="comp-name">Concevoir et developper une solution applicative</span>
+                        <div class="level-indicator level-4">
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                        </div>
+                    </div>
+                    <div class="competence-row">
+                        <span class="comp-name">Assurer la maintenance corrective ou evolutive</span>
+                        <div class="level-indicator level-3">
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot"></span>
+                        </div>
+                    </div>
+                    <div class="competence-row">
+                        <span class="comp-name">Gerer les donnees</span>
+                        <div class="level-indicator level-3">
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Legende -->
+            <div class="legend">
+                <h4>Legende des niveaux</h4>
+                <div class="legend-items">
+                    <div class="legend-item">
+                        <div class="level-indicator level-1">
+                            <span class="level-dot active"></span>
+                            <span class="level-dot"></span>
+                            <span class="level-dot"></span>
+                            <span class="level-dot"></span>
+                        </div>
+                        <span>Notions</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="level-indicator level-2">
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot"></span>
+                            <span class="level-dot"></span>
+                        </div>
+                        <span>Pratique</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="level-indicator level-3">
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot"></span>
+                        </div>
+                        <span>Maitrise</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="level-indicator level-4">
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                            <span class="level-dot active"></span>
+                        </div>
+                        <span>Expert</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bouton PDF -->
+            <div class="pdf-download">
+                <a href="../Synthese_Epreuve.pdf" target="_blank" class="btn-pdf">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    Telecharger le tableau complet (PDF)
+                </a>
+            </div>
+        </section>
+
+        <a href="../index.html" class="home-button">
+            &#8592; Retour a l'accueil
+        </a>
+    </div>
+
+    <script src="mesCompetences.js"></script>
+</body>
+</html>
