@@ -104,12 +104,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         category: 'Gestion de Projet'
                     },
                     {
-                        src: '/images/livrables/hsm-immo/DemandeClient.jpeg',
-                        title: 'Demande Client',
-                        description: 'Document de demande initiale du client avec les exigences fonctionnelles et techniques',
-                        category: 'Fonctionnalité'
-                    },
-                    {
                         src: '/images/livrables/hsm-immo/architect.png',
                         title: 'Architecture du projet',
                         description: 'Diagramme de l\'architecture technique du code HSM Immo, illustrant l\'organisation des composants et des flux de données',
@@ -875,26 +869,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
                 challengesSection.appendChild(challengesContainer);
                 featuresGrid.appendChild(challengesSection);
-            }
-
-            if (project.results) {
-                const resultsSection = document.createElement('div');
-                resultsSection.className = 'results-section';
-                resultsSection.innerHTML = '<h2>📈 Résultats & Impact</h2>';
-                const resultsContainer = document.createElement('div');
-                resultsContainer.className = 'results-grid';
-                project.results.forEach(result => {
-                    const card = document.createElement('div');
-                    card.className = 'result-card';
-                    card.innerHTML = `
-                        <div class="result-icon">${result.icon}</div>
-                        <div class="result-value">${result.value}</div>
-                        <div class="result-metric">${result.metric}</div>
-                    `;
-                    resultsContainer.appendChild(card);
-                });
-                resultsSection.appendChild(resultsContainer);
-                featuresGrid.appendChild(resultsSection);
             }
         } else {
             // Format simple (HSM et Symfony)
